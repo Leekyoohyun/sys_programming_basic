@@ -5,7 +5,7 @@
 
 int get_min(int a, int b, int c) {
 
-  return 1;
+  return 0;
 }
 
 int main(){
