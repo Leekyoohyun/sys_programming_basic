@@ -14,6 +14,7 @@ int main(){
   int selection;
 
   selection = showMenu();
+  printf("%d.\n",selection);
 
   return selection;
 }
