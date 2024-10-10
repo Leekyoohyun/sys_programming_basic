@@ -4,7 +4,7 @@
 #include <stdio.h>
 int main(){
   int score = 79;
-  char grade;
+  char grade; //String은 어디갔지?
 
   if(score >= 90){
     grade = 'A';
