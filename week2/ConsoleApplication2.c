@@ -4,7 +4,7 @@ int main(){
 
     float y = 1.0;
 
-    printf("x = %d \n",x,y);
+    printf("x = %d. %f.\n",x,y);
     printf("sdfsdf");
 
     return 0;
