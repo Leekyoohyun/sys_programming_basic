@@ -18,9 +18,11 @@ int main(){
       printf("%c. \n",ch);
       break;
     default:
-      printf("End. \n", ch);
+      printf("End. \n");
       break;
   }
 
-  printf("Hello. \n",ch);
+  printf("Hello. \n");
+
+  return 0;
 }
