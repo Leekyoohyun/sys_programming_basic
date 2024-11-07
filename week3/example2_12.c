@@ -2,6 +2,7 @@
 
 int main(){
     float f; double d; int i;
+    int count = 0;
 
     f = 0.123456789123456789F; //F를 붙여야 float으로 인식
     d = 0.123456789123456789; //Default인 double로 자동인식
@@ -11,6 +12,10 @@ int main(){
     printf("double in .20lf is %.20lf.\n",d);
     printf("double in 25.4lf is\n%25.4lf.\n",d);
     printf("double in -25.4lf is\n%-25.4lf.\n",d);
+
+    printf("---------\n");
+
+    printf("%3.4lf.\n",d);
     
     i = 365;
     printf("int in -8d is %-8d.\n",i);

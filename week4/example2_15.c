@@ -5,7 +5,8 @@
 int main(){
   char ch1, ch2;
   printf("Enter two characters.\n ");
-  scanf("%c %c", &ch1, &ch2); //scanf는 공백 생각해야함 꼭!!
+  scanf("%c%c", &ch1, &ch2); //scanf는 공백 생각해야함 꼭!!
+  //붙여서 쓰면 엔터를 인식함
   printf("Characters just read are %c and %c.\n", ch1, ch2);
   return 0;
 }

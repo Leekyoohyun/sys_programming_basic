@@ -18,7 +18,7 @@ void main() {
     //}
     //printf(num1 +num2);
 
-    printf("hello,\tworld.\a\a\a\n");
+    printf("hello,\tworld.\a\a\a.\n");
     printf("\"%%\n");
     
 }
