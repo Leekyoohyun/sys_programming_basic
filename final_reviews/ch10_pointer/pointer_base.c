@@ -14,4 +14,15 @@ int main() {
   printf("&num = %p\n", &num);
   printf("&p = %p\n", &p);
   printf("p = %p\n", p);
+
+  int * p2;
+
+  p2 = p;
+  printf("p2 = %p\n", p2);
+  printf("*p2 = %d\n", *p2);
+
+  int * p3 = &num;
+  printf("*p3 = %d\n", *p3);
+
+
 }
