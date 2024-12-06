@@ -135,6 +135,7 @@ int main(){
 
  */
 
+/*
 //ex12-7
 #include <string.h>
 
@@ -143,6 +144,7 @@ void permute(char*, int, int);
 
 int main() {
   char str[] = "abc";
+  printf("%d\n", strlen(str));
   permute(str, 0, strlen(str)-1); // 1
 
   return 0;
@@ -166,4 +168,308 @@ void permute(char* s, int left, int right){ // 2
       swap(s+left, s+i); // 7 백트래킹
     }
   }
+}
+ */
+
+/*
+//ex 12-8
+int main() {
+  char str[128];
+
+  printf("Enter: \n");
+  scanf("%[A-Z]s", str); //대문자 A-Z 사이 문자만 읽음
+
+  printf("String before lower case: %s\n", str);
+
+  while(getchar() != '\n');
+  printf("Enter: \n");
+  scanf("%[^e]s",str); // 첫 e를 만나기 전까지 읽음
+  printf("String before e is %s\n", str);
+
+  while(getchar() != '\n');
+  printf("Enter with space: \n");
+  scanf("%[^\n]s",str); // \n만나기 전까지 읽음 이게 빈칸이 아님.
+  printf("you entered %s\n", str);
+
+  while(getchar() != '\n');
+  printf("Enter with space: \n");
+  gets(str); // 한줄 읽기 함수. Enter누르기 전까지 모든 문자 읽음.
+  printf("you entered %s\n", str);
+  return 0;
+}
+*/
+
+/*
+//ex 12-9
+int main() {
+  char str[10];
+    printf("Enter a string: ");
+    printf("\n");
+  gets(str);
+  puts(str);
+
+  do{
+    printf("Enter another string: \n");
+    gets(str);
+    puts(str);
+  }while(*str != 0);
+
+  printf("Enter a very Long string.\n");
+  gets(str);
+  printf("you entered, \n");
+  puts(str);
+
+  return 0;
+
+}
+
+ */
+
+/*
+//ex 12-10
+#include <string.h>
+
+int main() {
+ char text[10];
+
+ printf("Enter a text \n");
+ fgets(text, sizeof(text), stdin);
+ printf("you entered text: %s", text);
+ printf(" It's length is %d\n", strlen(text)); //apple 입력시 length가 5여야 되는데 6임 null때매
+
+ text[strlen(text) - 1] = '\0';
+ printf("you entered text: %s\n", text);
+ printf(" It's length is %d\n", strlen(text)); //이렇게 해야 5
+
+ return 0;
+}
+*/
+
+/*
+//ex 12-11
+int main() {
+  char first[6], last[6];
+
+  printf("Enter first name.\n");
+  fgets(first, sizeof(first), stdin);
+
+  //while(getchar() != '\n');
+  printf("Enter last name.\n");
+  fgets(last, sizeof(last), stdin);
+
+  printf("Full name: \n");
+  puts(first);
+  puts(last);
+
+  return 0;
+}
+
+ */
+
+/*
+//ex 12-12
+#include <string.h>
+
+int main() {
+  char *str1 = "pine", *str2 = "apple";
+
+  if(strlen(str1) - strlen(str2) >= 0)
+    printf("yes\n");
+  else
+    printf("no\n");
+
+  if(strlen(str1) > strlen(str2))
+    printf("yes\n");
+  else
+    printf("no\n");
+
+  if(((int)strlen(str1) - (int)strlen(str2)) >= 0)
+    printf("yes\n");
+  else
+    printf("no\n");
+
+  return 0;
+}
+*/
+
+/*
+//ex12-13
+#include <string.h>
+
+int main() {
+  char str1[30], str2[10];
+
+  printf("Enter a string: \n");
+  gets(str1);
+  printf("Enter a string: \n");
+  gets(str2);
+
+  printf("strlen(str1) = %d\n", strlen(str1));
+  printf("strlen(str2) = %d\n", strlen(str2));
+
+  if(strcmp(str1,str2) ==0)
+    printf("%s and %s are equal\n", str1, str2);
+  else if(strcmp(str1,str2) < 0)
+    printf("%s is smaller than %s\n", str1, str2);
+  else
+    printf("%s is bigger than %s\n", str1, str2);
+
+  printf("Before strcpy\n str1 = %s, str2 = %s\n", str1, str2);
+  strcpy(str1, str2);
+  printf("After strcpy\n str1 = %s, str2 = %s\n", str1, str2);
+
+  printf("Before strcat\n str1 = %s, str2 = %s\n", str1, str2);
+  strcpy(str1, str2);
+  printf("After strcat\n str1 = %s, str2 = %s\n", str1, str2);
+
+  printf("%s \n", strcat(str1, "OMG!"));
+
+  return 0;
+}
+*/
+
+/*
+//ex 12- 14
+int my_strlen(const char *str){
+  int i;
+  for(i=0; str[i] != '\0'; i++);
+  return i;
+}
+
+int main(){
+  char text[30];
+  printf("Enter a text \n");
+  gets(text);
+
+  printf("Length of text is %d \n", my_strlen(text));
+
+  return 0;
+}
+*/
+
+/*
+//ex 12- 15
+int recursive_strlen(const char *str){
+  if(*str == '\0')
+    return 0;
+  else
+    return (1+recursive_strlen(++str));
+}
+
+int main(){
+  char text[30];
+  printf("Enter a string: \n");
+  gets(text);
+  printf("Lent: %d\n",recursive_strlen(text));
+  return 0;
+}
+*/
+
+/*
+//ex 12-16
+char* my_strcpy(char *dest, char *src) {
+  int i = 0;
+  while((dest[i] = src[i]) != '\0')
+    i++;
+  return dest;
+}
+
+int main(){
+  char dest[30], src[10];
+
+  printf("Enter desination string\n");
+  gets(dest);
+  printf("Enter source string\n");
+  gets(src);
+
+  printf("On strcpy(dest, src), dest became %s\n", my_strcpy(dest, src));
+
+  return 0;
+}
+*/
+
+/*
+//ex 12-17
+char* mystrcpy(char *dest, const char *src){
+  char* backup = dest;
+  while(*src != '\0'){
+    *dest = *src;
+    dest++;
+    src++;
+  }
+  *dest = '\0';
+  return backup;
+}
+
+int main(){
+  char dest[30], src[10];
+
+  printf("Enter a string: \n");
+  gets(dest);
+  printf("Enter another string: \n");
+  gets(src);
+
+  printf("strcpy(dest, src) -> %s \n", mystrcpy(dest, src));
+
+  return 0;
+}
+ */
+
+/*
+//ex 12-18
+#include <string.h>
+
+int main() {
+  char *here, *there;
+  char text[] = "This is first. This is second. This is third.";
+  const char ch='.';
+
+  here = strchr(text, ch);
+  printf("Text after the first period is, %s\n", (here+2));
+
+  strcpy(text, "It is a right answer.");
+  there = strstr(text, "right");
+  strncpy(there, "wrong", 5);
+  puts(text);
+
+  return 0;
+}
+
+ */
+
+/*
+//ex 12- 19
+int main() {
+  char str[100];
+
+  char* name = "Lee eun";
+  int age = 19;
+  double weight = 58.5;
+
+  char *first = "First line of a long string. ";
+  char *second = "Second line of a long string. ";
+
+  sprintf(str, "Name: %s, Age: %d, Weight: %lf.", name, age, weight);
+  puts(str);
+
+  sprintf(str, "%s %s", first, second);
+  puts(str);
+
+  return 0;
+}
+ */
+
+//ex 12-20
+#include <string.h>
+
+int main() {
+  char str[] = "J.Park Seoul 010-2222-3456";
+
+  char *p = strtok(str, " ");
+  while(p != NULL){
+    printf("%s\n", p);
+    p = strtok(NULL, " ");
+  }
+
+  return 0;
 }
